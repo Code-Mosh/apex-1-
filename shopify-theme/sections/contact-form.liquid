@@ -1,0 +1,769 @@
+{%- style -%}
+  .contact-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.background_color }};
+  }
+
+  .contact-container-{{ section.id }} {
+    max-width: {{ section.settings.container_width }}px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .contact-header-{{ section.id }} {
+    margin-bottom: 4rem;
+  }
+
+  .contact-title-{{ section.id }} {
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: 700;
+    color: {{ section.settings.title_color }};
+    margin-bottom: 1rem;
+  }
+
+  .contact-highlight-{{ section.id }} {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .contact-description-{{ section.id }} {
+    font-size: {{ section.settings.description_size }}px;
+    color: {{ section.settings.description_color }};
+  }
+
+  .contact-content-{{ section.id }} {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: left;
+  }
+
+  @media (min-width: 1024px) {
+    .contact-content-{{ section.id }} {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  .contact-form-{{ section.id }} {
+    background: {{ section.settings.form_background }};
+    border-radius: {{ section.settings.form_border_radius }}px;
+    padding: 2rem;
+    box-shadow: {{ section.settings.form_shadow }};
+  }
+
+  .contact-form-header-{{ section.id }} {
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  .contact-form-title-{{ section.id }} {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: {{ section.settings.form_title_color }};
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-form-subtitle-{{ section.id }} {
+    color: {{ section.settings.form_text_color }};
+  }
+
+  .contact-form-grid-{{ section.id }} {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-form-row-{{ section.id }} {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .contact-form-row-{{ section.id }} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .contact-form-group-{{ section.id }} {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-form-label-{{ section.id }} {
+    display: block;
+    font-weight: 500;
+    color: {{ section.settings.label_color }};
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-form-input-{{ section.id }} {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid {{ section.settings.input_border_color }};
+    border-radius: {{ section.settings.input_border_radius }}px;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: {{ section.settings.input_background }};
+    color: {{ section.settings.input_text_color }};
+  }
+
+  .contact-form-input-{{ section.id }}:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+  }
+
+  .contact-form-textarea-{{ section.id }} {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .contact-form-button-{{ section.id }} {
+    width: 100%;
+    background: var(--gradient-primary);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: {{ section.settings.button_border_radius }}px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .contact-form-button-{{ section.id }}:hover {
+    background: var(--gradient-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+  }
+
+  .contact-info-{{ section.id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-info-card-{{ section.id }} {
+    background: {{ section.settings.info_card_background }};
+    border-radius: {{ section.settings.info_card_border_radius }}px;
+    padding: 1.5rem;
+    box-shadow: {{ section.settings.info_card_shadow }};
+  }
+
+  .contact-info-header-{{ section.id }} {
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  .contact-info-title-{{ section.id }} {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: {{ section.settings.info_title_color }};
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-info-subtitle-{{ section.id }} {
+    color: {{ section.settings.info_text_color }};
+  }
+
+  .contact-info-list-{{ section.id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-info-item-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .contact-info-icon-{{ section.id }} {
+    padding: 0.75rem;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(233, 30, 99, 0.1) 100%);
+    border-radius: 0.75rem;
+  }
+
+  .contact-info-text-{{ section.id }} {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-info-label-{{ section.id }} {
+    font-weight: 500;
+    color: {{ section.settings.info_label_color }};
+  }
+
+  .contact-info-value-{{ section.id }} {
+    color: {{ section.settings.info_value_color }};
+  }
+{%- endstyle -%}
+
+<section id="contact" class="contact-{{ section.id }}">
+  <div class="contact-container-{{ section.id }}">
+    <div class="contact-header-{{ section.id }}">
+      {%- if section.settings.title != blank -%}
+        <h2 class="contact-title-{{ section.id }}">
+          {{ section.settings.title_prefix }}
+          {%- if section.settings.title_highlight != blank -%}
+            <span class="contact-highlight-{{ section.id }}">{{ section.settings.title_highlight }}</span>
+          {%- endif -%}
+          {{ section.settings.title_suffix }}
+        </h2>
+      {%- endif -%}
+      
+      {%- if section.settings.description != blank -%}
+        <p class="contact-description-{{ section.id }}">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="contact-content-{{ section.id }}">
+      <!-- Contact Form -->
+      <div class="contact-form-{{ section.id }}">
+        <div class="contact-form-header-{{ section.id }}">
+          <h3 class="contact-form-title-{{ section.id }}">{{ section.settings.form_title }}</h3>
+          <p class="contact-form-subtitle-{{ section.id }}">{{ section.settings.form_subtitle }}</p>
+        </div>
+
+        <form class="contact-form-grid-{{ section.id }}" action="{{ section.settings.form_action | default: '/contact#contact_form' }}" method="post" accept-charset="UTF-8">
+          <input type="hidden" name="form_type" value="contact">
+          <input type="hidden" name="utf8" value="✓">
+          
+          <div class="contact-form-row-{{ section.id }}">
+            <div class="contact-form-group-{{ section.id }}">
+              <label for="ContactFormName-{{ section.id }}" class="contact-form-label-{{ section.id }}">Name *</label>
+              <input 
+                type="text" 
+                id="ContactFormName-{{ section.id }}" 
+                name="contact[name]" 
+                required 
+                class="contact-form-input-{{ section.id }}"
+                placeholder="{{ section.settings.name_placeholder }}"
+              >
+            </div>
+            <div class="contact-form-group-{{ section.id }}">
+              <label for="ContactFormEmail-{{ section.id }}" class="contact-form-label-{{ section.id }}">Email *</label>
+              <input 
+                type="email" 
+                id="ContactFormEmail-{{ section.id }}" 
+                name="contact[email]" 
+                required 
+                class="contact-form-input-{{ section.id }}"
+                placeholder="{{ section.settings.email_placeholder }}"
+              >
+            </div>
+          </div>
+
+          {%- if section.settings.show_company_field -%}
+            <div class="contact-form-group-{{ section.id }}">
+              <label for="ContactFormCompany-{{ section.id }}" class="contact-form-label-{{ section.id }}">Company</label>
+              <input 
+                type="text" 
+                id="ContactFormCompany-{{ section.id }}" 
+                name="contact[company]" 
+                class="contact-form-input-{{ section.id }}"
+                placeholder="{{ section.settings.company_placeholder }}"
+              >
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.show_subject_field -%}
+            <div class="contact-form-group-{{ section.id }}">
+              <label for="ContactFormSubject-{{ section.id }}" class="contact-form-label-{{ section.id }}">Subject</label>
+              <input 
+                type="text" 
+                id="ContactFormSubject-{{ section.id }}" 
+                name="contact[subject]" 
+                class="contact-form-input-{{ section.id }}"
+                placeholder="{{ section.settings.subject_placeholder }}"
+              >
+            </div>
+          {%- endif -%}
+
+          <div class="contact-form-group-{{ section.id }}">
+            <label for="ContactFormMessage-{{ section.id }}" class="contact-form-label-{{ section.id }}">Message *</label>
+            <textarea 
+              id="ContactFormMessage-{{ section.id }}" 
+              name="contact[body]" 
+              required 
+              class="contact-form-input-{{ section.id }} contact-form-textarea-{{ section.id }}"
+              placeholder="{{ section.settings.message_placeholder }}"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="contact-form-button-{{ section.id }}">
+            {{ section.settings.button_text }}
+            {%- if section.settings.button_show_icon -%}
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            {%- endif -%}
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="contact-info-{{ section.id }}">
+        <div class="contact-info-card-{{ section.id }}">
+          <div class="contact-info-header-{{ section.id }}">
+            <h3 class="contact-info-title-{{ section.id }}">{{ section.settings.info_title }}</h3>
+            <p class="contact-info-subtitle-{{ section.id }}">{{ section.settings.info_subtitle }}</p>
+          </div>
+
+          <div class="contact-info-list-{{ section.id }}">
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'contact_info' -%}
+                  <div class="contact-info-item-{{ section.id }}" {{ block.shopify_attributes }}>
+                    <div class="contact-info-icon-{{ section.id }}">
+                      {{ block.settings.icon }}
+                    </div>
+                    <div class="contact-info-text-{{ section.id }}">
+                      <div class="contact-info-label-{{ section.id }}">{{ block.settings.label }}</div>
+                      <div class="contact-info-value-{{ section.id }}">{{ block.settings.value }}</div>
+                    </div>
+                  </div>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "default": "Get In",
+      "label": "Title prefix"
+    },
+    {
+      "type": "text",
+      "id": "title_highlight",
+      "default": "Touch",
+      "label": "Title highlight (will be gradient)"
+    },
+    {
+      "type": "text",
+      "id": "title_suffix",
+      "label": "Title suffix"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "default": "Ready to transform your online presence? Let's discuss your project and create something amazing together.",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 800,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "label": "Container width",
+      "default": 1000
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Form Settings"
+    },
+    {
+      "type": "text",
+      "id": "form_title",
+      "default": "Send us a message",
+      "label": "Form title"
+    },
+    {
+      "type": "text",
+      "id": "form_subtitle",
+      "default": "Fill out the form and we'll get back to you within 24 hours",
+      "label": "Form subtitle"
+    },
+    {
+      "type": "url",
+      "id": "form_action",
+      "label": "Form action URL",
+      "info": "Leave blank to use Shopify's default contact form"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "default": "Send Message",
+      "label": "Button text"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_show_icon",
+      "default": true,
+      "label": "Show button icon"
+    },
+    {
+      "type": "header",
+      "content": "Form Fields"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_company_field",
+      "default": true,
+      "label": "Show company field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subject_field",
+      "default": false,
+      "label": "Show subject field"
+    },
+    {
+      "type": "text",
+      "id": "name_placeholder",
+      "default": "Your full name",
+      "label": "Name placeholder"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "default": "your@email.com",
+      "label": "Email placeholder"
+    },
+    {
+      "type": "text",
+      "id": "company_placeholder",
+      "default": "Your company name",
+      "label": "Company placeholder"
+    },
+    {
+      "type": "text",
+      "id": "subject_placeholder",
+      "default": "What can we help you with?",
+      "label": "Subject placeholder"
+    },
+    {
+      "type": "text",
+      "id": "message_placeholder",
+      "default": "Tell us about your project requirements...",
+      "label": "Message placeholder"
+    },
+    {
+      "type": "header",
+      "content": "Contact Info"
+    },
+    {
+      "type": "text",
+      "id": "info_title",
+      "default": "Contact Information",
+      "label": "Contact info title"
+    },
+    {
+      "type": "text",
+      "id": "info_subtitle",
+      "default": "Reach out to us directly",
+      "label": "Contact info subtitle"
+    },
+    {
+      "type": "header",
+      "content": "Colors & Styling"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "#f9fafb",
+      "label": "Section background"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "default": "#111827",
+      "label": "Title color"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "default": "#6b7280",
+      "label": "Description color"
+    },
+    {
+      "type": "color",
+      "id": "form_background",
+      "default": "#ffffff",
+      "label": "Form background"
+    },
+    {
+      "type": "color",
+      "id": "form_title_color",
+      "default": "#111827",
+      "label": "Form title color"
+    },
+    {
+      "type": "color",
+      "id": "form_text_color",
+      "default": "#6b7280",
+      "label": "Form text color"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "default": "#374151",
+      "label": "Label color"
+    },
+    {
+      "type": "color",
+      "id": "input_background",
+      "default": "#ffffff",
+      "label": "Input background"
+    },
+    {
+      "type": "color",
+      "id": "input_text_color",
+      "default": "#111827",
+      "label": "Input text color"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "default": "#e5e7eb",
+      "label": "Input border color"
+    },
+    {
+      "type": "color",
+      "id": "info_card_background",
+      "default": "#ffffff",
+      "label": "Info card background"
+    },
+    {
+      "type": "color",
+      "id": "info_title_color",
+      "default": "#111827",
+      "label": "Info title color"
+    },
+    {
+      "type": "color",
+      "id": "info_text_color",
+      "default": "#6b7280",
+      "label": "Info text color"
+    },
+    {
+      "type": "color",
+      "id": "info_label_color",
+      "default": "#111827",
+      "label": "Info label color"
+    },
+    {
+      "type": "color",
+      "id": "info_value_color",
+      "default": "#6b7280",
+      "label": "Info value color"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Title font size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Description font size",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Border Radius"
+    },
+    {
+      "type": "range",
+      "id": "form_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Form border radius",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "input_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Input border radius",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "info_card_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Info card border radius",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Shadows"
+    },
+    {
+      "type": "select",
+      "id": "form_shadow",
+      "options": [
+        {
+          "value": "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+          "label": "Light shadow"
+        },
+        {
+          "value": "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "label": "Medium shadow"
+        },
+        {
+          "value": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+          "label": "Strong shadow"
+        },
+        {
+          "value": "none",
+          "label": "No shadow"
+        }
+      ],
+      "default": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+      "label": "Form shadow"
+    },
+    {
+      "type": "select",
+      "id": "info_card_shadow",
+      "options": [
+        {
+          "value": "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+          "label": "Light shadow"
+        },
+        {
+          "value": "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "label": "Medium shadow"
+        },
+        {
+          "value": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+          "label": "Strong shadow"
+        },
+        {
+          "value": "none",
+          "label": "No shadow"
+        }
+      ],
+      "default": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+      "label": "Info card shadow"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact_info",
+      "name": "Contact Info",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon",
+          "label": "Icon SVG",
+          "default": "<svg width='24' height='24' fill='none' stroke='#FF6B35' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'/></svg>"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Phone",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "default": "+1 (555) 123-4567",
+          "label": "Value"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Form",
+      "blocks": [
+        {
+          "type": "contact_info",
+          "settings": {
+            "label": "Phone",
+            "value": "+1 (555) 123-4567"
+          }
+        },
+        {
+          "type": "contact_info",
+          "settings": {
+            "label": "Email",
+            "value": "contact@apexmediadesign.com",
+            "icon": "<svg width='24' height='24' fill='none' stroke='#FF6B35' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'/></svg>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

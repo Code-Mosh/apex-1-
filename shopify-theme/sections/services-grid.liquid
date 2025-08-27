@@ -1,0 +1,529 @@
+{%- style -%}
+  .services-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.background_color }};
+  }
+
+  .services-container-{{ section.id }} {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .services-header-{{ section.id }} {
+    margin-bottom: 4rem;
+  }
+
+  .services-title-{{ section.id }} {
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: 700;
+    color: {{ section.settings.title_color }};
+    margin-bottom: 1rem;
+  }
+
+  .services-highlight-{{ section.id }} {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .services-description-{{ section.id }} {
+    font-size: {{ section.settings.description_size }}px;
+    color: {{ section.settings.description_color }};
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .services-grid-{{ section.id }} {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .services-grid-{{ section.id }} {
+      grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+    }
+  }
+
+  .service-card-{{ section.id }} {
+    background: {{ section.settings.card_background }};
+    border-radius: {{ section.settings.card_border_radius }}px;
+    padding: 2rem;
+    box-shadow: {{ section.settings.card_shadow }};
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    text-align: left;
+  }
+
+  .service-card-{{ section.id }}:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 107, 53, 0.2);
+  }
+
+  .service-header-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-icon-{{ section.id }} {
+    padding: 0.75rem;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(233, 30, 99, 0.1) 100%);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .service-card-{{ section.id }}:hover .service-icon-{{ section.id }} {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.2) 0%, rgba(233, 30, 99, 0.2) 100%);
+  }
+
+  .service-title-{{ section.id }} {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: {{ section.settings.card_title_color }};
+    transition: color 0.3s ease;
+  }
+
+  .service-card-{{ section.id }}:hover .service-title-{{ section.id }} {
+    color: #ea580c;
+  }
+
+  .service-description-{{ section.id }} {
+    color: {{ section.settings.card_text_color }};
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .service-features-{{ section.id }} {
+    margin-bottom: 1.5rem;
+  }
+
+  .service-feature-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-feature-icon-{{ section.id }} {
+    width: 20px;
+    height: 20px;
+    color: #22c55e;
+    flex-shrink: 0;
+  }
+
+  .service-button-{{ section.id }} {
+    width: 100%;
+    text-align: center;
+  }
+
+  .services-cta-{{ section.id }} {
+    background: linear-gradient(135deg, {{ section.settings.cta_bg_color_1 }} 0%, {{ section.settings.cta_bg_color_2 }} 100%);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .services-cta-title-{{ section.id }} {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: {{ section.settings.cta_title_color }};
+    margin-bottom: 1rem;
+  }
+
+  .services-cta-description-{{ section.id }} {
+    color: {{ section.settings.cta_text_color }};
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+{%- endstyle -%}
+
+<section id="services" class="services-{{ section.id }}">
+  <div class="services-container-{{ section.id }}">
+    <div class="services-header-{{ section.id }}">
+      {%- if section.settings.title != blank -%}
+        <h2 class="services-title-{{ section.id }}">
+          {{ section.settings.title_prefix }}
+          {%- if section.settings.title_highlight != blank -%}
+            <span class="services-highlight-{{ section.id }}">{{ section.settings.title_highlight }}</span>
+          {%- endif -%}
+          {{ section.settings.title_suffix }}
+        </h2>
+      {%- endif -%}
+      
+      {%- if section.settings.description != blank -%}
+        <p class="services-description-{{ section.id }}">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+    
+    {%- if section.blocks.size > 0 -%}
+      <div class="services-grid-{{ section.id }}">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'service' -%}
+              <div class="service-card-{{ section.id }}" {{ block.shopify_attributes }}>
+                <div class="service-header-{{ section.id }}">
+                  {%- if block.settings.icon != blank -%}
+                    <div class="service-icon-{{ section.id }}">
+                      {{ block.settings.icon }}
+                    </div>
+                  {%- endif -%}
+                  <h3 class="service-title-{{ section.id }}">{{ block.settings.title }}</h3>
+                </div>
+                
+                {%- if block.settings.description != blank -%}
+                  <p class="service-description-{{ section.id }}">{{ block.settings.description }}</p>
+                {%- endif -%}
+                
+                {%- if block.settings.features != blank -%}
+                  <div class="service-features-{{ section.id }}">
+                    {%- assign features = block.settings.features | split: ',' -%}
+                    {%- for feature in features -%}
+                      <div class="service-feature-{{ section.id }}">
+                        <svg class="service-feature-icon-{{ section.id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span>{{ feature | strip }}</span>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                {%- endif -%}
+                
+                {%- if block.settings.button_text != blank -%}
+                  <a href="{{ block.settings.button_link }}" class="btn-secondary service-button-{{ section.id }}">
+                    {{ block.settings.button_text }}
+                  </a>
+                {%- endif -%}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_cta and section.settings.cta_title != blank -%}
+      <div class="services-cta-{{ section.id }}">
+        <h3 class="services-cta-title-{{ section.id }}">{{ section.settings.cta_title }}</h3>
+        {%- if section.settings.cta_description != blank -%}
+          <p class="services-cta-description-{{ section.id }}">{{ section.settings.cta_description }}</p>
+        {%- endif -%}
+        {%- if section.settings.cta_button_text != blank -%}
+          <a href="{{ section.settings.cta_button_link }}" class="btn-primary">
+            {{ section.settings.cta_button_text }}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Services Grid",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "default": "Our",
+      "label": "Title prefix"
+    },
+    {
+      "type": "text",
+      "id": "title_highlight",
+      "default": "Services",
+      "label": "Title highlight (will be gradient)"
+    },
+    {
+      "type": "text",
+      "id": "title_suffix",
+      "label": "Title suffix"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "default": "From custom development to ready-made templates, we provide comprehensive web solutions that help your business grow and succeed online.",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2,
+      "label": "Columns on desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "#ffffff",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "default": "#111827",
+      "label": "Title color"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "default": "#6b7280",
+      "label": "Description color"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "default": "#ffffff",
+      "label": "Card background"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "default": "#111827",
+      "label": "Card title color"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "default": "#6b7280",
+      "label": "Card text color"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Title font size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Description font size",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Card Styling"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Card border radius",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "card_shadow",
+      "options": [
+        {
+          "value": "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+          "label": "Light shadow"
+        },
+        {
+          "value": "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "label": "Medium shadow"
+        },
+        {
+          "value": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+          "label": "Strong shadow"
+        },
+        {
+          "value": "none",
+          "label": "No shadow"
+        }
+      ],
+      "default": "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+      "label": "Card shadow"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "default": true,
+      "label": "Show CTA section"
+    },
+    {
+      "type": "text",
+      "id": "cta_title",
+      "default": "Ready to Get Started?",
+      "label": "CTA title"
+    },
+    {
+      "type": "text",
+      "id": "cta_description",
+      "default": "Let's discuss your project and create something amazing together.",
+      "label": "CTA description"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "default": "Start Your Project",
+      "label": "CTA button text"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_link",
+      "default": "#contact",
+      "label": "CTA button link"
+    },
+    {
+      "type": "color",
+      "id": "cta_bg_color_1",
+      "default": "#f9fafb",
+      "label": "CTA background color 1"
+    },
+    {
+      "type": "color",
+      "id": "cta_bg_color_2",
+      "default": "#f3f4f6",
+      "label": "CTA background color 2"
+    },
+    {
+      "type": "color",
+      "id": "cta_title_color",
+      "default": "#111827",
+      "label": "CTA title color"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "default": "#6b7280",
+      "label": "CTA text color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon",
+          "label": "Icon SVG Code",
+          "default": "<svg width='32' height='32' fill='none' stroke='#FF6B35' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z'/></svg>"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Custom Web Design",
+          "label": "Service title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "default": "Bespoke website design and development tailored to your brand and business goals.",
+          "label": "Service description"
+        },
+        {
+          "type": "text",
+          "id": "features",
+          "default": "Responsive Design, SEO Optimized, CMS Integration, Custom Development",
+          "label": "Features (comma-separated)",
+          "info": "List features separated by commas"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "default": "Learn More",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "default": "#contact",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Services Grid",
+      "blocks": [
+        {
+          "type": "service",
+          "settings": {
+            "title": "Custom Web Design",
+            "description": "Bespoke website design and development tailored to your brand and business goals.",
+            "features": "Responsive Design, SEO Optimized, CMS Integration, Custom Development"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "E-commerce Solutions",
+            "description": "Complete online store development with payment integration and inventory management.",
+            "features": "Payment Gateway, Inventory System, Mobile Optimized, Analytics Dashboard",
+            "icon": "<svg width='32' height='32' fill='none' stroke='#FF6B35' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z'/></svg>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

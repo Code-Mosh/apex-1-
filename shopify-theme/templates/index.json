@@ -1,0 +1,151 @@
+{
+  "sections": {
+    "hero-banner": {
+      "type": "hero-banner",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "number": "500+",
+            "label": "Projects Completed"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "98%",
+            "label": "Client Satisfaction"
+          }
+        },
+        {
+          "type": "stat", 
+          "settings": {
+            "number": "24/7",
+            "label": "Support Available"
+          }
+        }
+      ],
+      "settings": {
+        "badge_text": "Trusted by 500+ Businesses",
+        "badge_icon": "⭐",
+        "title": "Professional Web Design",
+        "subtitle": "SERVICES & TEMPLATES",
+        "description": "From custom websites to premium templates - we deliver stunning, conversion-focused web solutions that drive results for your business.",
+        "button_primary_text": "GET FREE QUOTE",
+        "button_primary_link": "#contact",
+        "button_primary_icon": true,
+        "button_secondary_text": "View Services",
+        "button_secondary_link": "#services",
+        "bg_color_1": "#f9fafb",
+        "bg_color_2": "#ffffff",
+        "title_color": "#111827",
+        "description_color": "#6b7280"
+      }
+    },
+    "services-grid": {
+      "type": "services-grid",
+      "blocks": [
+        {
+          "type": "service",
+          "settings": {
+            "title": "Custom Web Design",
+            "description": "Bespoke website design and development tailored to your brand and business goals.",
+            "features": "Responsive Design, SEO Optimized, CMS Integration, Custom Development",
+            "button_text": "Learn More",
+            "button_link": "#contact",
+            "icon": "<svg width='32' height='32' fill='none' stroke='#FF6B35' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z'/></svg>"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "E-commerce Solutions", 
+            "description": "Complete online store development with payment integration and inventory management.",
+            "features": "Payment Gateway, Inventory System, Mobile Optimized, Analytics Dashboard",
+            "button_text": "Learn More",
+            "button_link": "#contact",
+            "icon": "<svg width='32' height='32' fill='none' stroke='#FF6B35' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z'/></svg>"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Premium Templates",
+            "description": "Ready-to-use, professional website templates for quick deployment and customization.",
+            "features": "Instant Download, Easy Customization, Documentation Included, Lifetime Updates",
+            "button_text": "Learn More", 
+            "button_link": "#contact",
+            "icon": "<svg width='32' height='32' fill='none' stroke='#FF6B35' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z'/></svg>"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Website Maintenance",
+            "description": "Ongoing support and maintenance to keep your website secure, fast, and up-to-date.",
+            "features": "Security Updates, Performance Optimization, Content Updates, Technical Support",
+            "button_text": "Learn More",
+            "button_link": "#contact", 
+            "icon": "<svg width='32' height='32' fill='none' stroke='#FF6B35' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'/><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'/></svg>"
+          }
+        }
+      ],
+      "settings": {
+        "title_prefix": "Our",
+        "title_highlight": "Services", 
+        "title_suffix": "",
+        "description": "From custom development to ready-made templates, we provide comprehensive web solutions that help your business grow and succeed online.",
+        "columns_desktop": 2,
+        "show_cta": true,
+        "cta_title": "Ready to Get Started?",
+        "cta_description": "Let's discuss your project and create something amazing together.",
+        "cta_button_text": "Start Your Project",
+        "cta_button_link": "#contact"
+      }
+    },
+    "contact-form": {
+      "type": "contact-form",
+      "blocks": [
+        {
+          "type": "contact_info",
+          "settings": {
+            "label": "Phone",
+            "value": "+1 (555) 123-4567",
+            "icon": "<svg width='24' height='24' fill='none' stroke='#FF6B35' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'/></svg>"
+          }
+        },
+        {
+          "type": "contact_info",
+          "settings": {
+            "label": "Email", 
+            "value": "contact@apexmediadesign.com",
+            "icon": "<svg width='24' height='24' fill='none' stroke='#FF6B35' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'/></svg>"
+          }
+        }
+      ],
+      "settings": {
+        "title_prefix": "Get In",
+        "title_highlight": "Touch",
+        "title_suffix": "",
+        "description": "Ready to transform your online presence? Let's discuss your project and create something amazing together.",
+        "form_title": "Send us a message",
+        "form_subtitle": "Fill out the form and we'll get back to you within 24 hours",
+        "button_text": "Send Message",
+        "button_show_icon": true,
+        "show_company_field": true,
+        "show_subject_field": false,
+        "name_placeholder": "Your full name",
+        "email_placeholder": "your@email.com",
+        "company_placeholder": "Your company name",
+        "message_placeholder": "Tell us about your project requirements...",
+        "info_title": "Contact Information",
+        "info_subtitle": "Reach out to us directly"
+      }
+    }
+  },
+  "order": [
+    "hero-banner",
+    "services-grid", 
+    "contact-form"
+  ]
+}
